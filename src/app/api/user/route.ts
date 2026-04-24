@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const body = await request.json();
+  const body = await request.json() as Record<string, unknown>;
   return NextResponse.json({
     message: "Data received successfully!",
     body,

@@ -14,7 +14,7 @@ export const runtime = 'edge';
 
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json() as { messages: unknown };
+    const { messages } = await req.json() as { messages: unknown[] };
 
     // 2. 基础输入校验
     if (!messages || !Array.isArray(messages)) {
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     const result = streamText({
       // model: gemini("gemini-2.0-flash"),
       model: groq("llama-3.3-70b-versatile"),
-      messages: await convertToModelMessages(messages),
+      messages: await convertToModelMessages(messages as Parameters<typeof convertToModelMessages>[0]),
       system: "你是一个高级程序员，请根据用户的问题给出回答",
     });
 

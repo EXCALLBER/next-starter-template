@@ -18,9 +18,8 @@ export default function Page() {
       },
       body: JSON.stringify({ userName, password }),
     });
-    const data = await response.json();
+    const data = await response.json() as { message: string };
     if (data.message === "登录成功!") {
-      // 消息提示登录成功后跳转到home页面
       alert(data.message);
       router.push("/home");
     } else {

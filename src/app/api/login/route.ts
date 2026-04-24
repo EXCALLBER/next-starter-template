@@ -3,8 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // 登录成功后设置 cookie
 export async function POST(request: NextRequest): Promise<NextResponse<{ message: string }>> {
-  const body = await request.json();
-  const { userName, password } = body;
+  const { userName, password } = await request.json() as { userName: string; password: string };
   console.log(userName, '------', password);
   if (userName === "admin" && password === "123456") {
     const cookieStore = await cookies();

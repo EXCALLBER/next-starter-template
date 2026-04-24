@@ -8,7 +8,7 @@ export default function ShopPage() {
         <div className="screen-full flex items-center justify-center text-2xl font-bold flex-col">
             <h1>Shop Page</h1>
             <ul>
-                {params.id?.map((id: string) => (
+                {(Array.isArray(params.id) ? params.id : params.id ? [params.id] : []).map((id) => (
                     <li key={id}>id: {id}</li>
                 ))}
             </ul>
