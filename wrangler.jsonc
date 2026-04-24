@@ -2,36 +2,18 @@
  * For more details on how to configure Wrangler, refer to:
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
-// {
-// 	"$schema": "node_modules/wrangler/config-schema.json",
-// 	"name": "next-starter-template",
-// 	"main": ".open-next/worker.js",
-// 	"compatibility_date": "2025-10-08",
-// 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-// 	"assets": {
-// 		"binding": "ASSETS",
-// 		"directory": ".open-next/assets"
-// 	},
-// 	"observability": {
-// 		"enabled": false
-// 	},
-// 	"upload_source_maps": true
-// }
-
 {
-  "observability": {
-    "enabled": false,
-    "head_sampling_rate": 1,
-    "logs": {
-      "enabled": true,
-      "head_sampling_rate": 1,
-      "persist": true,
-      "invocation_logs": true
-    },
-    "traces": {
-      "enabled": false,
-      "persist": true,
-      "head_sampling_rate": 1
-    }
-  }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "next-starter-template",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2025-10-08",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".open-next/assets"
+	},
+	"observability": {
+		"enabled": false
+	},
+	"upload_source_maps": true
 }
