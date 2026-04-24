@@ -13,7 +13,7 @@
 		"directory": ".open-next/assets"
 	},
 	"observability": {
-		"enabled": true
+		"enabled": false
 	},
 	"upload_source_maps": true
 }
