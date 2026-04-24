@@ -14,7 +14,7 @@ export const runtime = 'edge';
 
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json();
+    const { messages } = await req.json() as { messages: unknown };
 
     // 2. 基础输入校验
     if (!messages || !Array.isArray(messages)) {
