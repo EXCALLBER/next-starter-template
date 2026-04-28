@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation"
@@ -26,12 +26,14 @@ export default function Page() {
       alert(data.message);
     }
   }
- 
+
   return (
-    <div className='mt-10 flex flex-col items-center justify-center gap-4'>
-            <Input value={userName} onChange={(e) => setUserName(e.target.value)} className='w-[250px]' placeholder="请输入用户名" />
-            <Input value={password} onChange={(e) => setPassword(e.target.value)} className='w-[250px]' placeholder="请输入密码" />
-            <Button onClick={handleLogin}>登录</Button>
-        </div>
+    <Suspense fallback={<p>Loading...</p>}>
+      <div className='mt-10 flex flex-col items-center justify-center gap-4'>
+        <Input value={userName} onChange={(e) => setUserName(e.target.value)} className='w-[250px]' placeholder="请输入用户名" />
+        <Input value={password} onChange={(e) => setPassword(e.target.value)} className='w-[250px]' placeholder="请输入密码" />
+        <Button onClick={handleLogin}>登录</Button>
+      </div>
+    </Suspense>
   )
 }

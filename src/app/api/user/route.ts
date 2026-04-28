@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
+
 export async function GET(request: NextRequest) {
   // 接收参数
   const query = request.nextUrl.searchParams;

@@ -7,15 +7,12 @@ const corsHeaders = {
 }
 
 export async function proxy(request: NextRequest) {
-    // 登录状态验证
     const cookie = request.cookies.get('token');
     if (!cookie?.value) {
         return NextResponse.redirect(new URL('/', request.url));
     }
 
-    // 处理跨域
     const response = NextResponse.next();
-    console.log('Proxy middleware executed for:', response);
     Object.entries(corsHeaders).forEach(([key, value]) => {
         response.headers.set(key, value);
     });
@@ -23,5 +20,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-    matcher: "/api/:path*",
+    matcher: "/api/((?!login).*)",
 }
