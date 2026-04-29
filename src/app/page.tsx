@@ -1,5 +1,6 @@
 'use client'
 import { Suspense, useState } from "react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation"
@@ -29,6 +30,7 @@ export default function Page() {
 
   return (
     <Suspense fallback={<p>Loading...</p>}>
+      <SpeedInsights />
       <div className='mt-10 flex flex-col items-center justify-center gap-4'>
         <Input value={userName} onChange={(e) => setUserName(e.target.value)} className='w-[250px]' placeholder="请输入用户名" />
         <Input value={password} onChange={(e) => setPassword(e.target.value)} className='w-[250px]' placeholder="请输入密码" />
